@@ -5,6 +5,7 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
+import email from 'next-auth/providers/email';
 
 export async function authenticate(
   prevState: string | undefined,
@@ -39,7 +40,17 @@ const FormSchema = z.object({
   }),
   date: z.string(),
 });
+
+const CustomerFormSchema = z.object({
+  id:z.string(),
+  firstName:z.string({invalid_type_error: 'Please Enter Customer Name.',}),
+  lastName:z.string({invalid_type_error: 'Please Enter Customer Last Name.',}),
+  email:z.string({invalid_type_error: 'Please Enter an Email.',}).email(),
+  phoneNumber: z.string({invalid_type_error: 'Please Enter a Phone Number'})
+})
  
+const CreateCustomer = CustomerFormSchema.omit({ id: true });
+
 const CreateInvoice = FormSchema.omit({ id: true, date: true });
 
 const UpdateInvoice = FormSchema.omit({ id: true, date: true });
@@ -53,6 +64,51 @@ export type State = {
   message?: string | null;
 };
 
+export type State2 = {
+  errors?: {
+    firstName?: string[];
+    lastName?: string[];
+    email?: string[];
+    phoneNumber?: string[];
+  };
+  message?: string | null;
+};
+
+export async function createNewCustomer(state: State2, formData: FormData) {
+  const validatedFields = CreateCustomer.safeParse({
+    firstName: formData.get('firstName'),
+    lastName: formData.get('lastName'),
+    email: formData.get('email'),
+    phoneNumber: formData.get('phoneNumber')
+  });
+
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: 'Missing Fields. Failed to Create Customer.',
+    };
+  }
+
+  const { firstName, lastName, email, phoneNumber } = validatedFields.data;
+  const image_url = '/customers/evil-rabbit.png';
+  const name = `${firstName} ${lastName}`;
+
+  try {
+    await sql`
+    INSERT INTO customers (first_name, last_name, email, phone_number, image_url, name) 
+    VALUES (${firstName}, ${lastName}, ${email}, ${phoneNumber}, ${image_url}, ${name})
+  `;
+
+    return {
+      message: 'Customer created successfully.',
+    };
+  } catch (error) {
+    console.error('Database error:', error);
+    return {
+      message: 'Database Error: Failed to Create Customer.',
+    };
+  }
+}
 
 export async function createInvoice(prevState: State, formData: FormData) {
   // Validate form using Zod
