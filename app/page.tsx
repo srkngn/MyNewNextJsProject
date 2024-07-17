@@ -1,4 +1,4 @@
-import AcmeLogo from '@/app/ui/acme-logo';
+/* import AcmeLogo from '@/app/ui/acme-logo';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import styles from '@/App/ui/home.module.css'
@@ -50,3 +50,21 @@ export default function Page() {
     </main>
   );
 }
+ */
+
+import Breadcrumbs from "@/app/ui/invoices/breadcrumbs";
+import Form from "@/app/ui/customers/createCustomer";
+
+export default async function Page () {
+
+    return (<main>
+         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
+      <Breadcrumbs breadcrumbs={[{ label: 'Register Form', href: '/dashboard/register' }]} />
+      <div style={{ marginTop: '20px', width: '50%', padding: '20px', backgroundColor: '#f0f0f0', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
+        <Form />
+      </div>
+    </div>
+    
+    </main>)
+}
+

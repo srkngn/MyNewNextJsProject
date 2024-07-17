@@ -4,8 +4,8 @@ import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 //import { signIn } from '@/auth';
-import { AuthError } from 'next-auth';
-import email from 'next-auth/providers/email';
+//import { AuthError } from 'next-auth';
+//import email from 'next-auth/providers/email';
 
 /*  export async function authenticate(
   prevState: string | undefined,
