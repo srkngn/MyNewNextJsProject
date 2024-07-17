@@ -1,4 +1,4 @@
-'use client';
+/* 'use client';
 import { lusitana } from '@/app/ui/fonts';
 import {
   AtSymbolIcon,
@@ -77,4 +77,4 @@ export default function LoginForm() {
     </form>
   );
 }
- 
+  */
