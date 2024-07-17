@@ -58,13 +58,13 @@ import Form from "@/app/ui/customers/createCustomer";
 export default async function Page () {
 
     return (<main>
-         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
+ <div className="flex flex-col items-center justify-center min-h-screen p-4">
       <Breadcrumbs breadcrumbs={[{ label: 'Register Form', href: '/dashboard/register' }]} />
-      <div style={{ marginTop: '20px', width: '50%', padding: '20px', backgroundColor: '#f0f0f0', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
+      <div className="mt-8 w-full max-w-2xl bg-gray-100 rounded-lg shadow-md p-6">
         <Form />
       </div>
     </div>
-    
+
     </main>)
 }
 
