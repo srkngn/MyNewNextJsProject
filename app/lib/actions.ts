@@ -3,11 +3,11 @@ import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-import { signIn } from '@/auth';
+//import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
 import email from 'next-auth/providers/email';
 
-export async function authenticate(
+/*  export async function authenticate(
   prevState: string | undefined,
   formData: FormData,
 ) {
@@ -24,8 +24,8 @@ export async function authenticate(
     }
     throw error;
   }
-}
-
+} 
+ */
  
 const FormSchema = z.object({
   id: z.string(),
