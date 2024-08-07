@@ -60,14 +60,32 @@ import Head from "next/head";
 import '../styles/form.css'
 
 export default function Page () {
+  
+  useEffect(() => {
+    const loadScript = (url: string) => {
+      return new Promise<void>((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = url;
+        script.onload = () => resolve();
+        script.onerror = () => reject(new Error(`Script load error for ${url}`));
+        document.head.appendChild(script);
+      });
+    };
 
- useEffect(() => {
-  if (typeof window !== 'undefined' && window.Telegram && window.Telegram.WebApp) {
-    const webApp = window.Telegram.WebApp;
-    webApp.ready();
-    webApp.expand();
-  }
-}, []);
+    loadScript('https://telegram.org/js/telegram-web-app.js')
+      .then(() => {
+        if (typeof window !== 'undefined' && window.Telegram && window.Telegram.WebApp) {
+          const webApp = window.Telegram.WebApp;
+          webApp.ready();
+          webApp.expand();
+        } else {
+          console.log('Telegram Web App script is not loaded.');
+        }
+      })
+      .catch((error) => {
+        console.error('Error loading Telegram Web App script:', error);
+      });
+  }, []);
 
     return (<>
       <Head>
