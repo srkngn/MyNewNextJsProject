@@ -2,7 +2,7 @@
 
 import { createNewCustomer, State2,  } from "@/app/lib/actions";
 import { CustomerField } from "@/app/lib/definitions";
-import { useActionState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { Button } from "../button";
 import Link from "next/link";
 
@@ -17,9 +17,20 @@ interface FormProps {
 
 
 export default function Form({fromTelegram}: FormProps) {
-    const initialState: State2 = { message: null, errors: {} };
+    const [firstName, setFirstName] = useState(fromTelegram.firstName);
+    const [lastName, setLastName] = useState(fromTelegram.lastName);
+    const [email, setEmail] = useState(fromTelegram.email);
+    const [phoneNumber, setPhoneNumber] = useState(fromTelegram.phoneNumber);
 
-      const [state2, formAction] = useActionState(createNewCustomer, initialState);
+    useEffect(() => {
+      setFirstName(fromTelegram.firstName);
+      setLastName(fromTelegram.lastName);
+      setEmail(fromTelegram.email);
+      setPhoneNumber(fromTelegram.phoneNumber);
+    }, [fromTelegram]);
+
+    const initialState: State2 = { message: null, errors: {} };
+    const [state2, formAction] = useActionState(createNewCustomer, initialState);
     return (
         <form action={formAction}>
         <div className="rounded-md bg-gray-50 p-4 md:p-6">
@@ -30,7 +41,8 @@ export default function Form({fromTelegram}: FormProps) {
           <div className="relative mt-2 rounded-md">
             <div className="relative">
               <input
-                value={fromTelegram.firstName}
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
                 id="firstName"
                 name="firstName"
                 type="text"
@@ -48,7 +60,8 @@ export default function Form({fromTelegram}: FormProps) {
           <div className="relative mt-2 rounded-md">
             <div className="relative">
               <input
-                value={fromTelegram.lastName}
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
                 id="lastName"
                 name="lastName"
                 type="text"
@@ -67,7 +80,8 @@ export default function Form({fromTelegram}: FormProps) {
           <div className="relative mt-2 rounded-md">
             <div className="relative">
               <input
-                value={fromTelegram.email}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 id="email"
                 name="email"
                 type="text"
@@ -86,7 +100,8 @@ export default function Form({fromTelegram}: FormProps) {
           <div className="relative mt-2 rounded-md">
             <div className="relative">
               <input
-                value={fromTelegram.phoneNumber}
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
                 id="phoneNumber"
                 name="phoneNumber"
                 type="text"
