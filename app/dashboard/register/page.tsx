@@ -5,6 +5,6 @@ export default async function Page () {
 
     return (<main>
         <Breadcrumbs breadcrumbs={[{label: 'Register Form', href: '/dashboard/register'} ]} />
-        <Form />
+        {/* <Form /> */}
     </main>)
 }
