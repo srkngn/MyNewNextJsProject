@@ -51,6 +51,7 @@ export default function Page() {
   );
 }
  */
+"use client";
 
 import Breadcrumbs from "@/app/ui/invoices/breadcrumbs";
 import Form from "@/app/ui/customers/createCustomer";
