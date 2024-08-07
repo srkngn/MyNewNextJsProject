@@ -13,10 +13,9 @@
   margin-bottom: 16px;
   text-align: center;
   font-size: 1.25rem;
-  font-weight: bold;
   max-width: 90%;
   line-height: 1.5;
-  color: #f8c21bb5;
+  color: #ffffff;
 }
 
 /* Header */
@@ -41,6 +40,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 24px;
   box-sizing: border-box;
+  border-radius: 15px;
 }
 
 /* Küçük ekranlar için düzenlemeler */
