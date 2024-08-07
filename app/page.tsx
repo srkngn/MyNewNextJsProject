@@ -78,6 +78,14 @@ export default function Page () {
           const webApp = window.Telegram.WebApp;
           webApp.ready();
           webApp.expand();
+
+          const user= webApp.initDataUnsafe;
+          if(user) {
+            document.getElementById('firstName')?.setAttribute('value', user.first_name || '');
+            document.getElementById('lastName')?.setAttribute('value', user.last_name || '');
+            document.getElementById('email')?.setAttribute('value', user.email || '');
+            document.getElementById('phoneNumber')?.setAttribute('value', user.phone_number || '');
+          }
         } else {
           console.log('Telegram Web App script is not loaded.');
         }
@@ -87,21 +95,23 @@ export default function Page () {
       });
   }, []);
 
-    return (<>
+    return (
+    <>
       <Head>
           <script src="https://telegram.org/js/telegram-web-app.js"></script>
       </Head>
       <main className="main-container">
-       <header className="header">
-            <img src="/RoadToStudy/RoadToStudyLogo.png" alt="RoadToStudyLogo" className="logo" />
-       </header>
+        <header className="header">
+          <img src="/RoadToStudy/RoadToStudyLogo.png" alt="RoadToStudyLogo" className="logo" />
+        </header>
         <div className="title">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Nullam euismod justo vel orci imperdiet, id gravida turpis fermentum. Sed suscipit turpis id nisi tincidunt, vel malesuada dolor ultricies.
-       </div>
-  <div className="form-container">
-    <Form />
-  </div>
-</main>
-  </>)
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Nullam euismod justo vel orci imperdiet, id gravida turpis fermentum. Sed suscipit turpis id nisi tincidunt, vel malesuada dolor ultricies.
+        </div>
+        <div className="form-container">
+          <Form />
+        </div>
+      </main>
+  </>
+  )
 }
 
