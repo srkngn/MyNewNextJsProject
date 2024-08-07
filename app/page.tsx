@@ -62,13 +62,12 @@ import '../styles/form.css'
 export default function Page () {
 
   useEffect(() => {
-    if (window.Telegram && window.Telegram.WebApp) {
-        const webApp = window.Telegram.WebApp;
-
-        webApp.ready();
-        webApp.expand();
+    if (typeof window !== 'undefined' && window.Telegram && window.Telegram.WebApp) {
+      const webApp = window.Telegram.WebApp;
+      webApp.ready();
+      webApp.expand();
     }
-}, []);
+  }, []);
 
     return (<>
       <Head>
