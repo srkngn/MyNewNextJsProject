@@ -6,7 +6,17 @@ import { useActionState } from "react";
 import { Button } from "../button";
 import Link from "next/link";
 
-export default function Form() {
+interface FormProps {
+  fromTelegram: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phoneNumber: string;
+  };
+}
+
+
+export default function Form({fromTelegram}: FormProps) {
     const initialState: State2 = { message: null, errors: {} };
 
       const [state2, formAction] = useActionState(createNewCustomer, initialState);
@@ -20,6 +30,7 @@ export default function Form() {
           <div className="relative mt-2 rounded-md">
             <div className="relative">
               <input
+                value={fromTelegram.firstName}
                 id="firstName"
                 name="firstName"
                 type="text"
@@ -37,6 +48,7 @@ export default function Form() {
           <div className="relative mt-2 rounded-md">
             <div className="relative">
               <input
+                value={fromTelegram.lastName}
                 id="lastName"
                 name="lastName"
                 type="text"
@@ -55,6 +67,7 @@ export default function Form() {
           <div className="relative mt-2 rounded-md">
             <div className="relative">
               <input
+                value={fromTelegram.email}
                 id="email"
                 name="email"
                 type="text"
@@ -73,6 +86,7 @@ export default function Form() {
           <div className="relative mt-2 rounded-md">
             <div className="relative">
               <input
+                value={fromTelegram.phoneNumber}
                 id="phoneNumber"
                 name="phoneNumber"
                 type="text"

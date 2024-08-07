@@ -55,11 +55,17 @@ export default function Page() {
 
 import Breadcrumbs from "@/app/ui/invoices/breadcrumbs";
 import Form from "@/app/ui/customers/createCustomer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import '../styles/form.css'
 
 export default function Page () {
+  const[telegramData, setTelegramData] = useState({
+    firstName:'',
+    lastName:'',
+    email:'',
+    phoneNumber:'',
+  });
 
   useEffect(() => {
     const loadScript = (url: string) => {
@@ -79,13 +85,16 @@ export default function Page () {
           webApp.ready();
           webApp.expand();
 
-          const user= webApp.initDataUnsafe;
+          const user = webApp.initDataUnsafe;
           if(user) {
-            document.getElementById('firstName')?.setAttribute('value', user.first_name || '');
-            document.getElementById('lastName')?.setAttribute('value', user.last_name || '');
-            document.getElementById('email')?.setAttribute('value', user.email || '');
-            document.getElementById('phoneNumber')?.setAttribute('value', user.phone_number || '');
+            setTelegramData({
+              firstName: user.first_name || '',
+              lastName: user.last_name || '',
+              email: user.email || '',
+              phoneNumber:user.phone_number || '',              
+            });
           }
+          
         } else {
           console.log('Telegram Web App script is not loaded.');
         }
@@ -108,7 +117,7 @@ export default function Page () {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Nullam euismod justo vel orci imperdiet, id gravida turpis fermentum. Sed suscipit turpis id nisi tincidunt, vel malesuada dolor ultricies.
         </div>
         <div className="form-container">
-          <Form />
+          <Form fromTelegram={telegramData}/>
         </div>
       </main>
   </>
