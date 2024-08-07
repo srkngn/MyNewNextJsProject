@@ -11,7 +11,7 @@
 /* Başlık */
 .title {
   margin-bottom: 16px;
-  text-align: left;
+  text-align: justify;
   font-size: 1.25rem;
   max-width: 100%;
   line-height: 1.5;
