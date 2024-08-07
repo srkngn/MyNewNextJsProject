@@ -91,19 +91,17 @@ export default function Page () {
       <Head>
           <script src="https://telegram.org/js/telegram-web-app.js"></script>
       </Head>
-      <main>
-        <header className="flex items-center justify-center header-padding header-margin" >
-          <img src="/RoadToStudy/RoadToStudyLogo.png" alt="RoadToStudyLogo" className="h-12" />
-        </header>
-          <div className="flex flex-col items-center justify-center min-h-screen p-4 form-padding">
-            <div className="title">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Nullam euismod justo vel orci imperdiet, id gravida turpis fermentum. Sed suscipit turpis id nisi tincidunt, vel malesuada dolor ultricies.
-            </div>
-              <div className="mt-8 w-full max-w-2xl bg-gray-100 rounded-lg shadow-md p-6 ">
-                  <Form />
-              </div>
-          </div>
-      </main>
+      <main className="main-container">
+  <header className="header">
+    <img src="/RoadToStudy/RoadToStudyLogo.png" alt="RoadToStudyLogo" className="h-12" />
+  </header>
+  <div className="title">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Nullam euismod justo vel orci imperdiet, id gravida turpis fermentum. Sed suscipit turpis id nisi tincidunt, vel malesuada dolor ultricies.
+  </div>
+  <div className="form-container">
+    <Form />
+  </div>
+</main>
   </>)
 }
 

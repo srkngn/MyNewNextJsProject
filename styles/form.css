@@ -17,3 +17,59 @@
 .logo-size {
   width: 300px;
 }
+
+/* Ana kapsayıcı */
+.main-container {
+  display: flex;
+  flex-direction: column; /* Öğeleri dikey olarak hizalar */
+  align-items: center; /* Öğeleri ortalar */
+  min-height: 100vh; /* Tam ekran yüksekliği */
+  padding: 16px; /* İçerik ile kenar arasındaki boşluk */
+  box-sizing: border-box; /* Padding ve border'ı genişlik ve yükseklik hesaplamalarına dahil eder */
+}
+
+/* Başlık */
+.title {
+  margin-bottom: 16px; /* Başlık ile form arasındaki boşluk */
+  text-align: center; /* Başlığı ortalar */
+  font-size: 1.25rem; /* Başlık boyutu */
+  font-weight: bold; /* Başlık fontunu kalın yapar */
+  max-width: 90%; /* Başlığın genişliğini sınırlar */
+  line-height: 1.5; /* Satır yüksekliği */
+}
+
+/* Header */
+.header {
+  display: flex; /* Flexbox kullanımı */
+  justify-content: center; /* Yatayda ortalar */
+  align-items: center; /* Dikeyde ortalar */
+  padding: 16px; /* İçerik ile kenar arasındaki boşluk */
+  width: 100%; /* Header genişliğini tam ekran yapar */
+}
+
+/* Form */
+.form-container {
+  width: 100%; /* Form genişliği */
+  max-width: 100%; /* Maksimum genişlik */
+  background-color: #f3f4f6; /* Arka plan rengi */
+  border-radius: 8px; /* Köşe yuvarlatma */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Gölgeler */
+  padding: 24px; /* İçerik ile kenar arasındaki boşluk */
+  box-sizing: border-box; /* Padding ve border'ı genişlik ve yükseklik hesaplamalarına dahil eder */
+}
+
+/* Küçük ekranlar için düzenlemeler */
+@media (max-width: 768px) {
+  .title {
+    font-size: 1rem; /* Küçük ekranlarda başlık boyutunu küçültür */
+    margin-bottom: 12px; /* Başlık ve form arasındaki boşluğu küçültür */
+  }
+
+  .header {
+    margin-bottom: 12px; /* Küçük ekranlarda margin'i küçültür */
+  }
+
+  .form-container {
+    padding: 16px; /* Küçük ekranlarda padding'i küçültür */
+  }
+}
