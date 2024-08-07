@@ -20,12 +20,17 @@
 }
 
 /* Header */
-.logo {
+.header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 16px;
+  padding: 20px;
   width: 100%;
+}
+
+.header img {
+  height: 70px;
+  width: auto;
 }
 
 /* Form */
