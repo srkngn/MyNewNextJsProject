@@ -48,6 +48,8 @@ const CustomerFormSchema = z.object({
   email:z.string({invalid_type_error: 'Please Enter an Email.',}).email(),
   phoneNumber: z.string({invalid_type_error: 'Please Enter a Phone Number'})
 })
+
+
  
 const CreateCustomer = CustomerFormSchema.omit({ id: true });
 

@@ -54,17 +54,36 @@ export default function Page() {
 
 import Breadcrumbs from "@/app/ui/invoices/breadcrumbs";
 import Form from "@/app/ui/customers/createCustomer";
+import { useEffect } from "react";
+import Head from "next/head";
+import '../styles/form.css'
 
-export default async function Page () {
+export default function Page () {
 
-    return (<main>
- <div className="flex flex-col items-center justify-center min-h-screen p-4">
-      <Breadcrumbs breadcrumbs={[{ label: 'Register Form', href: '/dashboard/register' }]} />
-      <div className="mt-8 w-full max-w-2xl bg-gray-100 rounded-lg shadow-md p-6">
-        <Form />
-      </div>
-    </div>
+  useEffect(() => {
+    if (window.Telegram && window.Telegram.WebApp) {
+        const webApp = window.Telegram.WebApp;
 
-    </main>)
+        webApp.ready();
+        webApp.expand();
+    }
+}, []);
+
+    return (<>
+      <Head>
+          <script src="https://telegram.org/js/telegram-web-app.js"></script>
+      </Head>
+      <main>
+        <header className="flex items-center justify-center header-padding header-margin" >
+          <img src="/RoadToStudy/RoadToStudyLogo.png" alt="RoadToStudyLogo" className="h-12" />
+        </header>
+          <div className="flex flex-col items-center justify-center min-h-screen p-4 form-padding">
+              <Breadcrumbs breadcrumbs={[{ label: 'Hemen Kaydını Oluştur', href: '/' }]} />
+              <div className="mt-8 w-full max-w-2xl bg-gray-100 rounded-lg shadow-md p-6 ">
+                  <Form />
+              </div>
+          </div>
+      </main>
+  </>)
 }
 

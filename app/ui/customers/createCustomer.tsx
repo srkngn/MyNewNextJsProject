@@ -30,7 +30,6 @@ export default function Form() {
             </div>
           </div>
         </div>
-
         <div className="mb-4">
           <label htmlFor="lastName" className="mb-2 block text-sm font-medium">
             Last Name
