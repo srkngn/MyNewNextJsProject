@@ -15,7 +15,7 @@
   font-size: 1.25rem;
   max-width: 90%;
   line-height: 1.5;
-  color: #ffffff;
+  color: white;
 }
 
 /* Header */
@@ -56,5 +56,11 @@
 
   .form-container {
     padding: 16px;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .title {
+    color: black;
   }
 }
