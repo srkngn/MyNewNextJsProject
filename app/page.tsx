@@ -90,8 +90,8 @@ export default function Page () {
             setTelegramData({
               firstName: user.first_name || '',
               lastName: user.last_name || '',
-              email: user.email || '',
-              phoneNumber:user.phone_number || '',              
+              email:'',
+              phoneNumber:'',              
             });
           }
           
