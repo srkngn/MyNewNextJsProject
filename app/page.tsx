@@ -60,7 +60,7 @@ import Head from "next/head";
 import '../styles/form.css'
 
 export default function Page () {
-  
+
   useEffect(() => {
     const loadScript = (url: string) => {
       return new Promise<void>((resolve, reject) => {
@@ -96,7 +96,7 @@ export default function Page () {
           <img src="/RoadToStudy/RoadToStudyLogo.png" alt="RoadToStudyLogo" className="h-12" />
         </header>
           <div className="flex flex-col items-center justify-center min-h-screen p-4 form-padding">
-              <Breadcrumbs breadcrumbs={[{ label: 'Hemen Kaydını Oluştur', href: '/' }]} />
+              <Breadcrumbs breadcrumbs={[{ label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Nullam euismod justo vel orci imperdiet, id gravida turpis fermentum. Sed suscipit turpis id nisi tincidunt, vel malesuada dolor ultricies.', href: '/' }]} />
               <div className="mt-8 w-full max-w-2xl bg-gray-100 rounded-lg shadow-md p-6 ">
                   <Form />
               </div>

@@ -68,7 +68,7 @@ export default function Form() {
 
         <div className="mb-4">
           <label htmlFor="phoneNumber" className="mb-2 block text-sm font-medium">
-            Phone Number
+            Phone Number (With Country Code)
           </label>
           <div className="relative mt-2 rounded-md">
             <div className="relative">
