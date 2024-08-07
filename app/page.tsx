@@ -92,12 +92,12 @@ export default function Page () {
           <script src="https://telegram.org/js/telegram-web-app.js"></script>
       </Head>
       <main className="main-container">
-  <header className="header">
-    <img src="/RoadToStudy/RoadToStudyLogo.png" alt="RoadToStudyLogo" className="h-12" />
-  </header>
-  <div className="title">
+       <header className="logo">
+            <img src="/RoadToStudy/RoadToStudyLogo.png" alt="RoadToStudyLogo" className="h-12" />
+       </header>
+        <div className="title">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Nullam euismod justo vel orci imperdiet, id gravida turpis fermentum. Sed suscipit turpis id nisi tincidunt, vel malesuada dolor ultricies.
-  </div>
+       </div>
   <div className="form-container">
     <Form />
   </div>

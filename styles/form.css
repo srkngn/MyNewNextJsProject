@@ -1,75 +1,55 @@
-.header-margin {
-  margin-bottom: -200px;
-}
-
-.form-margin {
-  margin-top: 20px;
-}
-
-.header-padding {
-  padding: 80px;
-}
-
-.form-padding {
-  padding: 0px;
-}
-
-.logo-size {
-  width: 300px;
-}
-
 /* Ana kapsayıcı */
 .main-container {
   display: flex;
-  flex-direction: column; /* Öğeleri dikey olarak hizalar */
-  align-items: center; /* Öğeleri ortalar */
-  min-height: 100vh; /* Tam ekran yüksekliği */
-  padding: 16px; /* İçerik ile kenar arasındaki boşluk */
-  box-sizing: border-box; /* Padding ve border'ı genişlik ve yükseklik hesaplamalarına dahil eder */
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 16px;
+  box-sizing: border-box;
 }
 
 /* Başlık */
 .title {
-  margin-bottom: 16px; /* Başlık ile form arasındaki boşluk */
-  text-align: center; /* Başlığı ortalar */
-  font-size: 1.25rem; /* Başlık boyutu */
-  font-weight: bold; /* Başlık fontunu kalın yapar */
-  max-width: 90%; /* Başlığın genişliğini sınırlar */
-  line-height: 1.5; /* Satır yüksekliği */
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+  max-width: 90%;
+  line-height: 1.5;
+  color: rgb(44, 39, 33);
 }
 
 /* Header */
-.header {
-  display: flex; /* Flexbox kullanımı */
-  justify-content: center; /* Yatayda ortalar */
-  align-items: center; /* Dikeyde ortalar */
-  padding: 16px; /* İçerik ile kenar arasındaki boşluk */
-  width: 100%; /* Header genişliğini tam ekran yapar */
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  width: 100%;
 }
 
 /* Form */
 .form-container {
-  width: 100%; /* Form genişliği */
-  max-width: 100%; /* Maksimum genişlik */
-  background-color: #f3f4f6; /* Arka plan rengi */
-  border-radius: 8px; /* Köşe yuvarlatma */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Gölgeler */
-  padding: 24px; /* İçerik ile kenar arasındaki boşluk */
-  box-sizing: border-box; /* Padding ve border'ı genişlik ve yükseklik hesaplamalarına dahil eder */
+  width: 100%;
+  max-width: 100%;
+  background-color: #f3f4f6;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  box-sizing: border-box;
 }
 
 /* Küçük ekranlar için düzenlemeler */
 @media (max-width: 768px) {
   .title {
-    font-size: 1rem; /* Küçük ekranlarda başlık boyutunu küçültür */
-    margin-bottom: 12px; /* Başlık ve form arasındaki boşluğu küçültür */
+    font-size: 1rem;
+    margin-bottom: 12px;
   }
 
   .header {
-    margin-bottom: 12px; /* Küçük ekranlarda margin'i küçültür */
+    margin-bottom: 12px;
   }
 
   .form-container {
-    padding: 16px; /* Küçük ekranlarda padding'i küçültür */
+    padding: 16px;
   }
 }
