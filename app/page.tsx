@@ -96,7 +96,7 @@ export default function Page () {
           console.log('initDataUnsafe:', webApp.initDataUnsafe);
           console.log('webApp', webApp)
 
-          const userData = webApp.initDataUnsafe.user;
+          const userData = webApp.initDataUnsafe as any;
           if(userData) {
             setTelegramData({
               firstName: userData.first_name || '',
