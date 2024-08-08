@@ -3,10 +3,8 @@ declare module '*.css';
 interface TelegramWebApp {
     ready: () => void;
     expand: () => void;
-    initDataUnsafe: { first_name?: string;
-      last_name?: string;
-      email?: string;
-      phone_number?: string;};
+    initDataUnsafe: {
+      user?: TelegramWebAppUser; };
   }
 
   interface Window {

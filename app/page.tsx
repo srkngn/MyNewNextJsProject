@@ -93,9 +93,10 @@ export default function Page () {
           webApp.ready();
           webApp.expand();
 
+          
           console.log('initDataUnsafe:', webApp.initDataUnsafe);
 
-          const userData: TelegramWebAppUser = webApp.initDataUnsafe as TelegramWebAppUser;
+          const userData = webApp.initDataUnsafe.user;
           if(userData) {
             setTelegramData({
               firstName: userData.first_name || '',
@@ -104,7 +105,9 @@ export default function Page () {
               phoneNumber:'',              
             });
           }
-          
+
+          console.log('userData:', userData);
+
         } else {
           console.log('Telegram Web App script is not loaded.');
         }
