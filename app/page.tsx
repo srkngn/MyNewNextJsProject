@@ -59,13 +59,6 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import '../styles/form.css'
 
-interface TelegramWebAppUser {
-  first_name?: string;
-  last_name?: string;
-  email?: string;
-  phone_number?: string;
-}
-
 
 export default function Page () {
   const[telegramData, setTelegramData] = useState({
@@ -95,15 +88,15 @@ export default function Page () {
 
           console.log('initDataUnsafe:', window.Telegram.WebApp.initDataUnsafe);
 
-          webApp.requestContact((contact) => {
-            console.log('User contact:', contact);
+          const userData = webApp.initDataUnsafe as TelegramWebAppUser;
+          if(userData) {
             setTelegramData({
-              firstName: contact?.first_name || '',
-              lastName: contact?.last_name || '',
-              email: contact?.email || '',
-              phoneNumber: contact?.phone_number || '',
+              firstName: userData.first_name || '',
+              lastName: userData.last_name || '',
+              email:'',
+              phoneNumber:'',              
             });
-          });
+          }
 
         } else {
           console.log('Telegram Web App script is not loaded.');
