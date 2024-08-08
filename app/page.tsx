@@ -69,16 +69,9 @@ interface userDataFromTelegram{
 }
 
 export default function Page () {
-  // const[telegramData, setTelegramData] = useState({
-  //   firstName:'',
-  //   lastName:'',
-  //   email:'',
-  //   phoneNumber:'',
-  // });
 
   const [ userDataT, setUserDataT] = useState<userDataFromTelegram | null>(null)
 
-  
   useEffect(() => {
     const loadScript = (url: string) => {
       return new Promise<void>((resolve, reject) => {
@@ -101,16 +94,8 @@ export default function Page () {
           if (userDataT) {
             setUserDataT(userDataT as userDataFromTelegram);
           }
+          console.log('currentUser',userDataT)
 
-          // const userData = webApp.initDataUnsafe.user;
-          // if(userData) {
-          //   setTelegramData({
-          //     firstName: userData.first_name || '',
-          //     lastName: userData.last_name || '',
-          //     email:'',
-          //     phoneNumber:'',              
-          //   });
-          // }
 
         } else {
           console.log('Telegram Web App script is not loaded.');
@@ -134,13 +119,6 @@ export default function Page () {
           <Form fromTelegram={userDataT}/>
         </div>
       </main>
-
-
-      <ul>
-        <li>ıd: {userDataT?.id}</li>
-        <li>First Name {userDataT?.first_name}</li>
-        <li>Last Name {userDataT?.last_name}</li>
-      </ul>
   </>
   )
 }
