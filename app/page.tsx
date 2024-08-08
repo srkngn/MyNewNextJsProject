@@ -95,15 +95,15 @@ export default function Page () {
 
           console.log('initDataUnsafe:', window.Telegram.WebApp.initDataUnsafe);
 
-          const userData = webApp.initDataUnsafe as any;
-          if(userData) {
+          webApp.requestContact((contact) => {
+            console.log('User contact:', contact);
             setTelegramData({
-              firstName: userData.first_name || '',
-              lastName: userData.last_name || '',
-              email:'',
-              phoneNumber:'',              
+              firstName: contact?.first_name || '',
+              lastName: contact?.last_name || '',
+              email: contact?.email || '',
+              phoneNumber: contact?.phone_number || '',
             });
-          }
+          });
 
         } else {
           console.log('Telegram Web App script is not loaded.');

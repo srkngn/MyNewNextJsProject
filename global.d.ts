@@ -5,6 +5,7 @@ interface TelegramWebApp {
     expand: () => void;
     initDataUnsafe: {
       user?: TelegramWebAppUser; };
+    requestContact: (callback: (contact: TelegramContact) => void) => void;
   }
 
   interface Window {
