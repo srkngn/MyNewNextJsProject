@@ -59,6 +59,14 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import '../styles/form.css'
 
+interface TelegramWebAppUser {
+  first_name?: string;
+  last_name?: string;
+  email?: string;
+  phone_number?: string;
+}
+
+
 export default function Page () {
   const[telegramData, setTelegramData] = useState({
     firstName:'',
@@ -85,7 +93,7 @@ export default function Page () {
           webApp.ready();
           webApp.expand();
 
-          const userData = webApp.initDataUnsafe;
+          const userData: TelegramWebAppUser = webApp.initDataUnsafe as TelegramWebAppUser;
           if(userData) {
             setTelegramData({
               firstName: userData.first_name || '',
