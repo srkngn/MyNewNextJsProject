@@ -93,8 +93,8 @@ export default function Page () {
           webApp.ready();
           webApp.expand();
 
-          
           console.log('initDataUnsafe:', webApp.initDataUnsafe);
+          console.log('webApp', webApp)
 
           const userData = webApp.initDataUnsafe.user;
           if(userData) {
