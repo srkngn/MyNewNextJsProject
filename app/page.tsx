@@ -86,22 +86,19 @@ export default function Page () {
           webApp.ready();
           webApp.expand();
 
-          console.log('initDataUnsafe:', window.Telegram.WebApp.initDataUnsafe);
+          const initData = webApp.initDataUnsafe as any;
+          Object.keys(initData).forEach(key => {
+          console.log(`${key}:`, initData[key]);
+          });
 
-          const initDataClg = webApp.initDataUnsafe;
-          console.log('Full initDataUnsafe:', initDataClg);
-
-          // WebAppUser içindeki kullanıcı verilerini kontrol et
-          const userDataClg = initDataClg.user;
-          console.log('User Data:', userDataClg);
-
-          const userData = webApp.initDataUnsafe.user;
-          if(userData) {
+          
+          if (initData.user) {
+            console.log('User Data:', initData.user);
             setTelegramData({
-              firstName: userData.first_name || '',
-              lastName: userData.last_name || '',
-              email:'',
-              phoneNumber:'',              
+              firstName: initData.user.first_name || '',
+              lastName: initData.user.last_name || '',
+              email: '',
+              phoneNumber: '',
             });
           }
 
