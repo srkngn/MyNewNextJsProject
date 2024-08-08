@@ -93,8 +93,7 @@ export default function Page () {
           webApp.ready();
           webApp.expand();
 
-          console.log('initDataUnsafe:', webApp.initDataUnsafe);
-          console.log('webApp', webApp)
+          console.log('initDataUnsafe:', window.Telegram.WebApp.initDataUnsafe);
 
           const userData = webApp.initDataUnsafe as any;
           if(userData) {
@@ -105,8 +104,6 @@ export default function Page () {
               phoneNumber:'',              
             });
           }
-
-          console.log('userData:', userData);
 
         } else {
           console.log('Telegram Web App script is not loaded.');
