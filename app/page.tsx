@@ -59,6 +59,14 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import '../styles/form.css'
 
+interface userDataFromTelegram{
+  id:number;
+  first_name: string;
+  last_name?: string;
+  username?:string;
+  language_code: string;
+  is_premium:boolean;
+}
 
 export default function Page () {
   const[telegramData, setTelegramData] = useState({
@@ -68,6 +76,9 @@ export default function Page () {
     phoneNumber:'',
   });
 
+  const [ userDataT, setUserDataT] = useState<userDataFromTelegram | null>(null)
+
+  
   useEffect(() => {
     const loadScript = (url: string) => {
       return new Promise<void>((resolve, reject) => {
@@ -86,22 +97,19 @@ export default function Page () {
           webApp.ready();
           webApp.expand();
 
-          const initData = window.Telegram.WebApp.initDataUnsafe;
-        console.log('initData:', initData);
+          const userDataT = webApp.initDataUnsafe.user;
+          if (userDataT) {
+            setUserDataT(userDataT as userDataFromTelegram);
+          }
 
-        // Kontrol etmek için json.stringify kullan
-        console.log('initData (stringified):', JSON.stringify(initData, null, 2));
-
-
-          
-        if (initData && initData.user) {
-          console.log('User Data:', initData.user);
-          setTelegramData({
-            firstName: initData.user.first_name || '',
-            lastName: initData.user.last_name || '',
-            email: '',
-            phoneNumber: '',
-          });
+          const userData = webApp.initDataUnsafe.user;
+          if(userData) {
+            setTelegramData({
+              firstName: userData.first_name || '',
+              lastName: userData.last_name || '',
+              email:'',
+              phoneNumber:'',              
+            });
           }
 
         } else {
@@ -126,6 +134,13 @@ export default function Page () {
           <Form fromTelegram={telegramData}/>
         </div>
       </main>
+
+
+      <ul>
+        <li>ıd: {userDataT?.id}</li>
+        <li>First Name {userDataT?.first_name}</li>
+        <li>Last Name {userDataT?.last_name}</li>
+      </ul>
   </>
   )
 }
