@@ -6,22 +6,35 @@ import { useActionState, useEffect, useState } from "react";
 import { Button } from "../button";
 import Link from "next/link";
 
-interface FormProps {
-  fromTelegram: {
-    firstName: string;
-    lastName: string;
-    email: string;
-    phoneNumber: string;
-  };
+interface UserDataFromTelegram {
+  id: number;
+  first_name: string;
+  last_name?: string;
+  username?: string;
+  language_code: string;
+  is_premium: boolean;
 }
 
+interface FormProps {
+  fromTelegram: UserDataFromTelegram | null;
+}
 
 export default function Form({fromTelegram}: FormProps) {
-    const [firstName, setFirstName] = useState(fromTelegram.firstName);
-    const [lastName, setLastName] = useState(fromTelegram.lastName);
-    const [email, setEmail] = useState(fromTelegram.email);
-    const [phoneNumber, setPhoneNumber] = useState(fromTelegram.phoneNumber);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
 
+  useEffect(() => {
+    if (fromTelegram) {
+      setFirstName(fromTelegram.first_name);
+      setLastName(fromTelegram.last_name || '');
+    }
+  }, [fromTelegram]);
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+  };
 
     const initialState: State2 = { message: null, errors: {} };
     const [state2, formAction] = useActionState(createNewCustomer, initialState);

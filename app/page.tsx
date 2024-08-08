@@ -69,12 +69,12 @@ interface userDataFromTelegram{
 }
 
 export default function Page () {
-  const[telegramData, setTelegramData] = useState({
-    firstName:'',
-    lastName:'',
-    email:'',
-    phoneNumber:'',
-  });
+  // const[telegramData, setTelegramData] = useState({
+  //   firstName:'',
+  //   lastName:'',
+  //   email:'',
+  //   phoneNumber:'',
+  // });
 
   const [ userDataT, setUserDataT] = useState<userDataFromTelegram | null>(null)
 
@@ -102,15 +102,15 @@ export default function Page () {
             setUserDataT(userDataT as userDataFromTelegram);
           }
 
-          const userData = webApp.initDataUnsafe.user;
-          if(userData) {
-            setTelegramData({
-              firstName: userData.first_name || '',
-              lastName: userData.last_name || '',
-              email:'',
-              phoneNumber:'',              
-            });
-          }
+          // const userData = webApp.initDataUnsafe.user;
+          // if(userData) {
+          //   setTelegramData({
+          //     firstName: userData.first_name || '',
+          //     lastName: userData.last_name || '',
+          //     email:'',
+          //     phoneNumber:'',              
+          //   });
+          // }
 
         } else {
           console.log('Telegram Web App script is not loaded.');
@@ -131,7 +131,7 @@ export default function Page () {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Nullam euismod justo vel orci imperdiet, id gravida turpis fermentum. Sed suscipit turpis id nisi tincidunt, vel malesuada dolor ultricies.
         </div>
         <div className="form-container">
-          <Form fromTelegram={telegramData}/>
+          <Form fromTelegram={userDataT}/>
         </div>
       </main>
 
