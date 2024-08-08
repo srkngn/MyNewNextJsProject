@@ -88,7 +88,14 @@ export default function Page () {
 
           console.log('initDataUnsafe:', window.Telegram.WebApp.initDataUnsafe);
 
-          const userData = webApp.initDataUnsafe as TelegramWebAppUser;
+          const initDataClg = webApp.initDataUnsafe;
+          console.log('Full initDataUnsafe:', initDataClg);
+
+          // WebAppUser içindeki kullanıcı verilerini kontrol et
+          const userDataClg = initDataClg.user;
+          console.log('User Data:', userDataClg);
+
+          const userData = webApp.initDataUnsafe.user;
           if(userData) {
             setTelegramData({
               firstName: userData.first_name || '',
