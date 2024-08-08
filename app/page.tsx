@@ -85,11 +85,11 @@ export default function Page () {
           webApp.ready();
           webApp.expand();
 
-          const user = webApp.initDataUnsafe;
-          if(user) {
+          const userData = webApp.initDataUnsafe;
+          if(userData) {
             setTelegramData({
-              firstName: user.first_name || '',
-              lastName: user.last_name || '',
+              firstName: userData.first_name || '',
+              lastName: userData.last_name || '',
               email:'',
               phoneNumber:'',              
             });
@@ -106,9 +106,6 @@ export default function Page () {
 
     return (
     <>
-      <Head>
-          <script src="https://telegram.org/js/telegram-web-app.js"></script>
-      </Head>
       <main className="main-container">
         <header className="header">
           <img src="/RoadToStudy/RoadToStudyLogo.png" alt="RoadToStudyLogo" className="logo" />

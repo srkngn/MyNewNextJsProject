@@ -22,12 +22,6 @@ export default function Form({fromTelegram}: FormProps) {
     const [email, setEmail] = useState(fromTelegram.email);
     const [phoneNumber, setPhoneNumber] = useState(fromTelegram.phoneNumber);
 
-    useEffect(() => {
-      setFirstName(fromTelegram.firstName);
-      setLastName(fromTelegram.lastName);
-      setEmail(fromTelegram.email);
-      setPhoneNumber(fromTelegram.phoneNumber);
-    }, [fromTelegram]);
 
     const initialState: State2 = { message: null, errors: {} };
     const [state2, formAction] = useActionState(createNewCustomer, initialState);
