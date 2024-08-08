@@ -93,8 +93,8 @@ export default function Page () {
           webApp.ready();
           webApp.expand();
 
-          console.log(webApp.initDataUnsafe);
-          
+          console.log('initDataUnsafe:', webApp.initDataUnsafe);
+
           const userData: TelegramWebAppUser = webApp.initDataUnsafe as TelegramWebAppUser;
           if(userData) {
             setTelegramData({
